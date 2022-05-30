@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles Page </title>
+    <style>
+        .my-actions {
+            margin: 0 2em;
+        }
+
+        .order-1 {
+            order: 1;
+        }
+
+        .order-2 {
+            order: 2;
+        }
+
+        .order-3 {
+            order: 3;
+        }
+
+        .right-gap {
+            margin-right: auto;
+        }
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Articles</a>
+            </div>
+    </nav>
+    <!-- Content -->
+    <div class="content container" style="padding-top: 2rem">
+        <div class="row">
+            <div class="col-md-8">
+                <!-- This is where django puts the content -->
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+    <!-- End Content -->
+
+
+</body>
+
+</html>

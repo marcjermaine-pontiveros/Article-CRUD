@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<h1> List of Articles: </h1>
+{% for article in articles %}
+    <div>
+        <!--<li>{{article.id }} </li>-->
+        <h3> <a href="{% url 'view_article' pk=article.id %}">{{ article.title }} </a></h3> </li>
+        <!--<li>{{article.content }} </li>-->
+        <h4>{{article.date_created }}</h4> </li>
+    </div>
+{% endfor %}
+    <a href="{% url 'create_article' %}"><button class="save btn btn-default"> Add Article </button></a>
+{% endblock %}

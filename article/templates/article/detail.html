@@ -1,0 +1,34 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<h1> {{ article.title }}</h1>
+<h4> {{ article.date_created}}</h4>
+
+<p> {{ article.content|safe }}</p>
+
+<button class="save btn btn-default"> <a href="{% url 'edit_article' pk=article.id%}"> Update </a> </button>
+<!--<button> <a href="{% url 'delete_article' pk=article.id%}"> Delete </a></button>-->
+<button onclick="confirmDelete()" class="save btn btn-default"> Delete </button>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    function confirmDelete() {
+        Swal.fire({
+                title: 'Do you want to delete this article?',
+                showCancelButton: true,
+                confirmButtonText: 'Yes',
+                customClass: {
+                    actions: 'my-actions',
+                    cancelButton: 'order-1 right-gap',
+                    confirmButton: 'order-2',
+                    denyButton: 'order-3',
+                }
+            }).then((result) => {
+                if (result.isConfirmed){
+                    Swal.fire('Saved!', '', 'success')
+                    window.location.href = "{% url 'delete_article' pk=article.id%}";
+                }
+            })
+    }
+</script>
+{% endblock %}
